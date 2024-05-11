@@ -1,0 +1,37 @@
+{%load socialaccount%}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<title>{% block title %}{% endblock %}</title>
+
+{% block body %}
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-end">
+        <div class="container">
+            <div class="d-flex ml-auto">
+                <span class="navbar-text" style="margin-right: -150px;"></span>
+            </div>
+        </div>
+    </nav>
+
+<div class="container m-4">
+<body onload="document.forms['google_login'].submit()" style="background-color: #2a3886; color: #ffffff;">
+
+<h5>You should be redirected to the Google login page in, otherwise use the button below.</h5>
+
+<form method="post" name= "google_login">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-primary">Continue</button>
+</form>
+</div>
+
+<footer class="footer mt-auto py-3 bg-light">
+    <div class="container text-center">
+        <span class="text-muted">© 2024 CS 3240 Project Group B-08. All rights reserved.</span>
+    </div>
+</footer>
+
+</body>
+{% endblock body %}

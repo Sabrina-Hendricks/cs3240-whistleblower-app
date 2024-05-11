@@ -1,0 +1,55 @@
+{% extends "myapp/base.html" %}
+{% load socialaccount %}
+
+{% block title %}Submit a Report{% endblock %}
+
+{% block body %}
+<style>
+    label[for="file"] {
+    display: block;
+    text-align: center;
+}
+</style>    
+
+<div class="container d-flex justify-content-center align-items-center;">
+<div class="m-4 border rounded p-4" style="background-color: #92b0e3;">
+    <h2>Submit a Report</h2>
+
+    <form method="post" enctype="multipart/form-data" action="{% url 'myapp:report_form' %}">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject">
+        </div>
+
+        <div class="mb-3">
+            <label for="category">Category:</label>
+            <select id="category" name="category">
+                {% for category in category_choices %}
+                <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="summary">Summary:</label>
+            <textarea id="summary" name="summary"></textarea>
+        </div>
+
+        <div class="mb-3 d-flex justify-content-center align-items-center">
+            <label for="file" class="mr-2">Upload File:</label>
+            <input type="file" id="file" name="file" accept=".jpg, .jpeg, .png, .txt, .pdf"> 
+        </div>
+        <div class="mb-3">
+            <small id="fileHelp" class="form-text font-italic" style="color:rgb(93, 93, 93);">Accepted file types: jpg, jpeg, png, txt, pdf</small>
+        </div>
+
+         <div class="button-container">
+            <button type="submit" class="btn btn-primary">Submit Report</button>
+            <a href="{% url 'myapp:home' %}" class="btn btn-secondary">Back</a>
+        </div>
+    </form>
+</div>
+</div>
+{% endblock %}

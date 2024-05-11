@@ -1,0 +1,32 @@
+{% load i18n %}
+{% load allauth account %}
+{% load socialaccount %}
+{% get_providers as socialaccount_providers %}
+
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<title>{% block title %}{% endblock %}</title>
+
+{% block body %}
+<body style="background-color: #2a3886; color: #ffffff;">
+
+    <div class="container m-4">
+    <h2>Login with Google</h2>
+    {% if SOCIALACCOUNT_ENABLED %}
+        {% if socialaccount_providers %}
+            <button class="btn btn-primary" onclick="window.location.href='{% provider_login_url 'google' process='login' %}'">Log in</button>
+        {% endif %}
+    {% endif %}
+    </div>
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted">© 2024 CS 3240 Project Group B-08. All rights reserved.</span>
+        </div>
+    </footer>
+</body>
+{% endblock body %}
+

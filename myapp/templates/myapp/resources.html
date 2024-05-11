@@ -1,0 +1,195 @@
+{% extends "myapp/base.html" %}
+
+{% block title %}Resources{% endblock %}
+
+{% block body %}
+
+<div class="container mt-4">
+    <h2>Mental Health Resources for Student-Athletes</h2>
+    <p>Welcome to our resource page dedicated to supporting the mental well-being of student-athletes. Here you'll find a range of materials and contacts that can assist you in managing the unique challenges faced by athletes.</p>
+
+    <!-- Categories of resources -->
+    <div class="accordion" id="resourceAccordion">
+        <!-- Mental Health Tips -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingMentalHealthTips">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMentalHealthTips">
+                    Mental Health Tips
+                </button>
+            </h2>
+            <div id="collapseMentalHealthTips" class="accordion-collapse collapse" data-bs-parent="#resourceAccordion" aria-expanded="false">
+                <div class="accordion-body">
+                    <div class="accordion" id="nestedAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="nestedHeadingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nestedCollapseOne">
+                                    How can I manage stress from school and athletics?
+                                </button>
+                            </h2>
+                            <div id="nestedCollapseOne" class="accordion-collapse collapse" data-bs-parent="#nestedAccordion">
+                                <div class="accordion-body">
+                                    It's crucial to prioritize and organize. Utilize planners and scheduling apps to block out time for studying, training, and rest. Don't hesitate to talk to your coaches and teachers about your schedule so they can provide support. Remember, taking breaks and self-care activities are just as important as your academic and athletic commitments.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="nestedHeadingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nestedCollapseTwo">
+                                    What should I do if I'm feeling overwhelmed?
+                                </button>
+                            </h2>
+                            <div id="nestedCollapseTwo" class="accordion-collapse collapse" data-bs-parent="#nestedAccordion">
+                                <div class="accordion-body">
+                                    Feeling overwhelmed is a signal to seek support. Speak with a counselor, a sports psychologist, or a trusted mentor. Schools often provide resources for student-athletes to manage their mental health. Additionally, make sure you're getting enough rest, eating healthily, staying hydrated, and maintaining social connections.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="nestedHeadingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nestedCollapseThree">
+                                    How important is it to maintain a social life outside sports and academics?
+                                </button>
+                            </h2>
+                            <div id="nestedCollapseThree" class="accordion-collapse collapse" data-bs-parent="#nestedAccordion">
+                                <div class="accordion-body">
+                                    It's very important to have a balance. Social interactions can provide emotional support and stress relief. Engaging in social activities can recharge your mind and improve your overall happiness.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="nestedHeadingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nestedCollapseFour">
+                                    What strategies can help with recovery after intense training or competitions?
+                                </button>
+                            </h2>
+                            <div id="nestedCollapseFour" class="accordion-collapse collapse" data-bs-parent="#nestedAccordion">
+                                <div class="accordion-body">
+                                   Post-competition recovery is as crucial as the preparation. It includes active recovery, proper nutrition, hydration, sleep, and mental rest. Techniques such as meditation, yoga, and even hobbies outside sports can help in psychological recovery.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="nestedHeadingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nestedCollapseFive">
+                                    How can I handle performance anxiety?
+                                </button>
+                            </h2>
+                            <div id="nestedCollapseFive" class="accordion-collapse collapse" data-bs-parent="#nestedAccordion">
+                                <div class="accordion-body">
+                                    Performance anxiety can be managed by developing a consistent pre-performance routine, focusing on process goals instead of outcomes, and practicing mindfulness. Also, speak openly about your feelings with a coach or psychologist.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="nestedHeadingSix">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nestedCollapseSix">
+                                    What role does nutrition play in mental health for student-athletes?
+                                </button>
+                            </h2>
+                            <div id="nestedCollapseSix" class="accordion-collapse collapse" data-bs-parent="#nestedAccordion">
+                                <div class="accordion-body">
+                                    Nutrition has a significant impact on mental health. A diet rich in vitamins, minerals, and antioxidants is vital for cognitive function and mood regulation. Conversely, a poor diet can lead to fatigue, impaired decision-making, and increased stress.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="nestedHeadingSeven">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nestedCollapseSeven">
+                                    Are there any specific mental exercises that can improve my focus during games?
+                                </button>
+                            </h2>
+                            <div id="nestedCollapseSeven" class="accordion-collapse collapse" data-bs-parent="#nestedAccordion">
+                                <div class="accordion-body">
+                                    Yes, techniques like visualization, goal setting, and concentration exercises can enhance focus. Regular practice of these techniques can train your brain to maintain focus during critical moments of the game.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingProfessional">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProfessional">
+                    Professional Help
+                </button>
+            </h2>
+            <div id="collapseProfessional" class="accordion-collapse collapse" data-bs-parent="#resourceAccordion">
+                <div class="accordion-body">
+                    <p>If you're experiencing mental health issues, it's crucial to seek professional help. Here are some contacts:</p>
+                    <ul>
+                        <li><a href="https://www.studenthealth.virginia.edu/CAPS">Campus Counseling Center:</a> Available to all students for confidential consultations.</li>
+                        <li><a href="https://988lifeline.org/?utm_campaign=Vibrant,988AwarenessQ1Q224&utm_source=Google&utm_medium=Search&gad_source=1&gclid=Cj0KCQjw2uiwBhCXARIsACMvIU34d8OSuvR9UtYac8oHt0IqYXxF8DrxOUX7az-DgOShWAq3IJKuEu4aArikEALw_wcB">National Helpline:</a> 1-800-662-HELP (4357), a confidential, free, 24-hour-a-day service.</li>
+                        <li><a href="https://www.samhsa.gov/find-help/national-helpline">SAMHSA’s National Helpline</a>: 1-800-662-HELP (4357).</li>
+                        <li><a href="https://www.mentalhealthamerica.net/">Mental Health America</a>: Support and resources for mental health.</li>
+                        <li><a href="https://www.psychologytoday.com/us/therapists">Find a Therapist</a>: Search for local mental health professionals.</li>
+                        <li><a href="https://www.betterhelp.com/">BetterHelp</a>: Access to licensed, trained, experienced, and accredited psychologists.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingEducation">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEducation">
+                    Educational Materials
+                </button>
+            </h2>
+            <div id="collapseEducation" class="accordion-collapse collapse" data-bs-parent="#resourceAccordion">
+                <div class="accordion-body">
+                    <p>Learn more about mental health with these resources:</p>
+                    <ul>
+                        <li><a href="https://www.mentalhealth.gov/">MentalHealth.gov</a>: Information on various mental health disorders.</li>
+                        <li><a href="https://www.ncaa.org/sport-science-institute/mental-health">NCAA Sport Science Institute</a>: Mental health educational resources.</li>
+                        <li><a href="https://www.mind.org.uk/">Mind</a>: Mental health information and support.</li>
+                        <li><a href="https://www.headspace.com/">Headspace</a>: Tools and resources for mindfulness and meditation.</li>
+                        <li><a href="https://www.ted.com/topics/mental+health">TED Talks on Mental Health</a>: Inspiring talks about mental health and well-being.</li>
+                        <li><a href="https://www.cdc.gov/mentalhealth/index.htm">CDC Mental Health</a>: Provides information on mental health and how to improve it.</li>
+                        <li><a href="https://www.nimh.nih.gov/">National Institute of Mental Health</a>: The largest scientific organization dedicated to mental health research.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingCommunities">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCommunities">
+                    Supportive Communities
+                </button>
+            </h2>
+            <div id="collapseCommunities" class="accordion-collapse collapse" data-bs-parent="#resourceAccordion">
+                <div class="accordion-body">
+                    <p>Connecting with other student-athletes can provide invaluable support. Here are some communities:</p>
+                    <ul>
+                        <li><a href="https://www.athletesforhope.org/">Athletes for Hope</a>: A network for athletes to share experiences.</li>
+                        <li><a href="https://www.studentathletehealth.org/">Student Athlete Health Initiative</a>: A platform for student-athletes to share experiences and support each other's mental health.</li>
+                        <li><a href="https://www.athletesconnected.umich.edu/">Athletes Connected</a>: A program dedicated to supporting the mental health of college athletes through outreach, education, and research.</li>
+                        <li><a href="https://www.jedcampus.org/">JED Campus</a>: A nationwide initiative designed to help colleges and universities support student mental health and prevent substance abuse and suicide.</li>
+                        <li><a href="https://www.ncsasports.org/">Next College Student Athlete (NCSA)</a>: Provides resources and guidance for student-athletes navigating the college recruiting process while prioritizing mental health and well-being.</li>
+                        <li><a href="https://activeforlife.com/mental-health-tips-for-athletes/">Active for Life</a>: Offers mental health tips and resources specifically tailored for young athletes.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingEmergency">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEmergency">
+                    Emergency Contacts
+                </button>
+            </h2>
+            <div id="collapseEmergency" class="accordion-collapse collapse" data-bs-parent="#resourceAccordion">
+                <div class="accordion-body">
+                    <p>In an emergency, it's important to get immediate help:</p>
+                    <ul>
+                        <li><strong>Emergency Services:</strong> Call 911 for immediate assistance.</li>
+                        <li><strong>Crisis Text Line:</strong> Text HOME to 741741 for free, 24/7 crisis counseling.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

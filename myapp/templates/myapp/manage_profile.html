@@ -1,0 +1,51 @@
+{% extends "myapp/base.html" %}
+
+{% block title %}My Profile{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h2 class="mt-5">My Profile</h2>
+
+    <div class="row justify-content-between mt-4">
+        <div class="col-md-6" style="padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); width: fit-content; margin: auto; background-color: #92b0e3;">
+            <h4>User Information:</h4>
+            <p><strong>Name:</strong> {{ site_user.username }}</p>
+            <p><strong>Email:</strong> {{ site_user.email }}</p>
+        </div>
+
+        <!-- Profile Image Column -->
+        <div class="col-md-6 text-center">
+            {% if site_user.profile_image %}
+                <img src="{{ site_user.profile_image }}" alt="Profile Image" style="width:250px; height:250px;">
+            {% else %}
+                <p>No profile image available.</p>
+            {% endif %}
+            <p><strong>Profile Image</strong></p>
+        </div>
+    </div>
+
+    <div class="row justify-content-left mt-4">
+        <div class="col-md-6">
+            <form method="post" enctype="multipart/form-data" class="p-3" style="background-color: #92b0e3;">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username" class="font-weight-bold">Change Your Name:</label>
+                    <input type="text" class="form-control" id="username" name="username" value="{{ site_user.username }}" placeholder="Enter new name">
+                </div>
+                <div class="form-group">
+                    <label for="profile_picture" class="font-weight-bold">Upload Profile Picture:</label>
+                    <div class="custom-file">
+                        <label class="custom-file-label" for="profile_picture">Choose file...</label>
+                        <input type="file" class="custom-file-input" id="profile_picture" name="profile_picture" accept=".jpg, .jpeg, .png, .gif">
+                        <small id="fileHelp" class="form-text font-italic">Accepted file types: jpg, jpeg, png, gif</small>
+                        <small id="fileHelp" class="form-text font-italic">Hover over "Browse" to see your selected file name. </small>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="{% url 'myapp:home' %}" class="btn btn-secondary">Back</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

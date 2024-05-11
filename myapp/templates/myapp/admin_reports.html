@@ -1,0 +1,124 @@
+{% extends "myapp/base.html" %}
+
+{% block title %}All User Reports{% endblock %}
+
+{% block body %}
+
+<div class="container d-flex justify-content-center align-items-center">
+<div class="m-4">
+    <h2>All User Reports</h2>
+
+    <!--Filter all the reports-->
+    <!--Source: https://getbootstrap.com/docs/5.2/components/accordion/-->
+    <div class="accordion my-2" id="filterAccordion">
+        <div class="accordion-item">
+            <!--Toggle the collapsible content-->
+            <h2 class="accordion-header" id="accordionHeading">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#accordionCollapse"
+                        aria-expanded="true" aria-controls="collapseOne">
+                    Filter Reports
+                </button>
+            </h2>
+
+            <!--Collapsible content-->
+            <div id="accordionCollapse" class="accordion-collapse collapse show" aria-labelledby="accordionHeading"
+                 data-bs-parent="#filterAccordion">
+                <div class="accordion-body">
+                    <!--Filter form-->
+                    <form action="{% url 'myapp:admin_reports' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label for="subject">Subject:</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="category">Category:</label>
+                            <select id="category" name="category">
+                                {% for category in category_choices %}
+                                <option value="{{ category }}">{{ category }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="user">Uploader:</label>
+                            <input type="text" id="user" name="user">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="date">Date:</label>
+                            <select id="date" name="date">
+                                {% for date in date_choices %}
+                                <option value="{{ date }}">{{ date }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="file">Filename:</label>
+                            <input type="text" id="file" name="file">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="status">Status:</label>
+                            <select id="status" name="status">
+                                {% for status in status_choices %}
+                                <option value="{{ status }}">{{ status }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="button-container">
+                            <button type="submit" class="btn btn-primary">Apply Filter</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="table-container" style="background-color: #ffffff; padding: 20px; border-radius: 5px;">
+        <!--Table of reports-->
+        {% if user_reports %}
+        <table class="table table-striped my-2">
+            <!--Header-->
+            <thead class="thead-dark">
+            <tr>
+                <th>Link</th>
+                <th>Subject</th>
+                <th>Summary</th>
+                <th>Category</th>
+                <th>Uploader</th>
+                <th>Date</th>
+                <th>Filename</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for report in user_reports %}
+            <tr>
+                <td><a href="{% url 'myapp:report_view' report_id=report.id %}">View report</a></td>
+                <td>{{ report.subject }}</td>
+                <td>{{ report.summary }}</td>
+                <td>{{ report.category }}</td>
+                <td>{{ report.user }}</td>
+                <td>{{ report.uploaded_at }}</td>
+                <td>{{ report.get_filename }}</td>
+                <td><span style="color: {{ report.get_status_color }};">{{ report.get_status_display }}</span></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No reports submitted yet.</p>
+        {% endif %}
+    </div>
+    <a href="{% url 'myapp:home' %}" class="btn btn-secondary mt-3">Back to Homepage</a>
+</div>
+</div>
+{% endblock %}

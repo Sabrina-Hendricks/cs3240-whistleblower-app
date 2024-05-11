@@ -1,0 +1,71 @@
+{% extends "myapp/base.html" %}
+
+{% block title %}Report View{% endblock %}
+
+{% block body %}
+
+<div class="container mt-4">
+    <h2>Report</h2>
+    <div class="row">
+        <!-- Report Details Section -->
+        <div class="col-md-8">
+            <p><strong>Submitted By:</strong> {{ user_report.user }}</p>
+            <p><strong>Subject:</strong> {{ user_report.subject }}</p>
+            <p><strong>Category:</strong> {{ user_report.get_category_display }}</p>
+            <p><strong>Summary:</strong> {{ user_report.summary }}</p>
+            <p><strong>Uploaded At:</strong> {{ user_report.uploaded_at }}</p>
+
+            {% if user_report.user_file %}
+            <p><strong>File:</strong></p>
+
+            <!--Embed the file-->
+            {% if file_extension == 'pdf' %}
+            <embed src="{{ user_report.user_file.location }}" type="application/pdf" style="width: 75%; height: auto;">
+
+            {% elif file_extension == 'jpg' or file_extension == 'jpeg' or file_extension == 'png' %}
+            <img src="{{ user_report.user_file.location }}" alt="{{ user_report.get_filename }}"
+                 style="max-width: 50%; height: auto;">
+
+            {% elif file_extension == 'txt' %}
+            <iframe src="{{ user_report.user_file.location }}" style="width: auto; height: 100%;"></iframe>
+
+            {% else %}
+            File type not supported for embedding.
+            {% endif %}
+
+            {% else %}
+            <!--No file to embed-->
+            <p><strong>File:</strong> None</p>
+            {% endif %}
+        </div>
+
+        <!-- Admin Comments and Buttons -->
+        <div class="col-md-4">
+            <div>
+                <p><strong>Status:</strong> {{ user_report.get_status_display }}</p>
+            </div>
+            {% if is_admin %}
+            <form method="post">
+                {% csrf_token %}
+                {{ resolve_form.as_p }}
+                 <div class="button-container text-right">
+                    <button type="submit" name="action" value="resolve" class="btn btn-success mb-2 mr-2 btn-block">Mark as Resolved</button>
+                    <button type="submit" name="action" value="unresolve" class="btn btn-danger mb-2 mr-2 btn-block">Mark as Unresolved</button>
+                    <button type="submit" name="action" value="update_comment" class="btn btn-primary mb-2 btn-block">Update Comments</button>
+                    <a href="{% url 'myapp:admin_reports' %}" class="btn btn-secondary btn-block">Back to Submissions</a>
+                </div>
+            </form>
+            {% else %}
+            <div>
+                <label for="comments">Admin Comments:</label>
+                <textarea id="comments" name="comments" cols="50" rows="3" readonly>{{ resolve_form.comments.value }}</textarea>
+            </div>
+
+            <div class="button-container">
+                <a href="{% url 'myapp:user_reports' %}" class="btn btn-secondary mt-3">Back to Submissions</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

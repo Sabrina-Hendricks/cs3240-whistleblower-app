@@ -1,0 +1,64 @@
+{% extends "myapp/base.html" %}
+{% load socialaccount %}
+
+{% block title %}Report an Athlete Homepage{% endblock %}
+
+{% block body %}
+<body>
+    <div class="container-fluid d-flex justify-content-center align-items-center" style="background-color: rgb(229, 177, 139);">
+        <div class="text-center" style="padding: 10px; color: #172881">
+            <h1>Report an Athlete</h1>
+            <h6 class="font-italic">For serious dangers to report, contact your local authorities. If you or someone you know is struggling, please refer to our Resources page for more information.</h6>
+        </div>
+    </div>
+
+
+    <div class="container d-flex justify-content-center align-items-center" style="height: 50vh;">
+        <div class="border rounded p-4 text-center" style="background-color: #92b0e3; padding: 50px;">
+
+        <!--Display user type-->
+        {% if is_logged_in %}
+        <p>You are logged in as {{ site_user.username }} ({{ site_user.email }}).</p>
+
+        {% if is_admin %}
+        <p>You are an admin user.</p>
+        {% endif %}
+
+        {% else %}
+        <p>You are an anonymous user.</p>
+        <p>Log in with Google to view your past reports.</p>
+
+        {% endif %}
+        
+
+        <!--Display messages-->
+        {% for message in messages %}
+        {% if 'file-upload' in message.tags %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        <!--Display user actions-->
+        {% if is_logged_in %}
+        <a href="{% url 'myapp:report_form' %}" class="btn btn-info mt-3">Submit a Report</a>
+        <a href="{% url 'myapp:user_reports' %}" class="btn btn-secondary mt-3">View Your Reports</a>
+
+        {% if is_admin %}
+        <a href="{% url 'myapp:admin_reports' %}" class="btn btn-primary mt-3">Review User Reports</a>
+        {% endif %}
+
+        <!--<br>-->
+        <!--<a href="{% url 'account_logout' %}" class="btn btn-danger mt-3">Log Out</a>-->
+
+        {% else %}
+        <a href="{% url 'myapp:report_form' %}" class="btn btn-info mt-3">Submit an Anonymous Report</a>
+        <br>
+        <a href="/accounts/login/" class="btn btn-primary mt-3">Log In</a>
+
+        {% endif %}
+    </div>
+    </div>
+</body>
+{% endblock %}

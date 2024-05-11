@@ -1,0 +1,82 @@
+{% extends "myapp/base.html" %}
+{% load socialaccount %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+{% endblock extra_css %}
+
+{% block title %}About Us{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+  <h1>About Us</h1>
+  <p>Our platform arose from the need for a compassionate space where student-athletes could openly discuss their struggles and seek help. Amid the rigorous demands of sport and study, we realized that mental health often took a back seat. Hence, we created this whistleblower app to provide a voice to those concerns in a confidential and supportive environment.</p>
+
+  <h2>Our Mission</h2>
+  <p>We aim to empower student-athletes by providing them with the resources and support needed to maintain their mental well-being. Recognizing the challenges of high-performance environments, we're committed to fostering resilience and promoting a balanced lifestyle.</p>
+
+  <h2>Meet the Team</h2>
+  <div class="row">
+    <div class="col-md-4">
+        <div class="card mb-4">
+          <img src="{% static 'img/eric-headshot.jpeg' %}" class="card-img-top" alt="Eric Weng">
+          <div class="card-body text-light bg-dark">
+            <h5 class="card-title">Eric Weng</h5>
+            <p class="card-text">Software Architect </p>
+            <p class="card-text">Contact: qgt7cm@virginia.edu</p>
+          </div>
+        </div>
+      </div>
+    <div class="col-md-4">
+        <div class="card mb-4">
+          <img src="{% static 'img/daniel-headshot.jpeg' %}" class="card-img-top" alt="Daniel Worth">
+          <div class="card-body text-light bg-dark">
+            <h5 class="card-title">Daniel Worth</h5>
+            <p class="card-text">DevOps Manager </p>
+            <p class="card-text">Contact: kqv8wa@virginia.edu</p>
+          </div>
+        </div>
+      </div>
+    <div class="col-md-4">
+        <div class="card mb-4">
+          <img src="{% static 'img/gilbert-headshot.jpg' %}" class="card-img-top" alt="Gilbert Jany">
+          <div class="card-body text-light bg-dark">
+            <h5 class="card-title">Gilbert Jany</h5>
+            <p class="card-text">Testing Manager </p>
+            <p class="card-text">Contact: eff5ap@virginia.edu</p>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <img src="{% static 'img/laura-headshot.jpeg' %}" class="card-img-top" alt="Laura Abood">
+        <div class="card-body text-light bg-dark">
+          <h5 class="card-title">Laura Abood</h5>
+          <p class="card-text">Scrum Master </p>
+          <p class="card-text">Contact: axu8rx@virginia.edu</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4">
+          <img src="{% static 'img/sabrina-headshot.jpeg' %}" class="card-img-top" alt="Sabrina Hendricks">
+          <div class="card-body text-light bg-dark">
+            <h5 class="card-title">Sabrina Hendricks</h5>
+            <p class="card-text">Requirements Manager </p>
+            <p class="card-text">Contact: nuq3tq@virginia.edu</p>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <h2>How We Help</h2>
+  <p>From FAQs to address common concerns to providing a directory of professional help, our tools are designed to guide student-athletes towards a healthier mindset. The app also includes educational materials and connects users to a supportive community, ensuring they never feel alone in their struggles.</p>
+
+  <h2>Get Involved</h2>
+  <p>If our mission resonates with you, join us in advocating for mental health in athletics. Whether you're a student, coach, professional, or enthusiast, your support can make a world of difference. Volunteer, partner with us, or simply share our platform with those who can benefit.</p>
+
+  <h2>Contact Us</h2>
+  <p>We welcome feedback and stories that can help us improve our platform and better serve the athletic community. Get in touch with any team member. Together, we're stronger.</p>
+</div>
+{% endblock %}

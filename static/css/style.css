@@ -1,0 +1,17 @@
+.card-img-top {
+    width: 100%;
+    height: 25vw;
+    object-fit: cover;
+    border-radius: .25rem .25rem 0 0;
+    object-position: center 20%;
+}
+
+.card {
+    height: 900;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    flex-grow: 1;
+}

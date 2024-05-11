@@ -1,0 +1,34 @@
+{% load allauth i18n %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<title>{% block title %}{% endblock %}</title>
+
+{% block body %}
+<body style="background-color: #2a3886; color: #ffffff;">
+    <div class="m-4">
+    {% element h1 %}
+        {% trans "Sign Out" %}
+    {% endelement %}
+    <p>{% trans 'Are you sure you want to sign out?' %}</p>
+    {% url 'account_logout' as action_url %}
+    {% element form method="post" action=action_url no_visible_fields=True %}
+        {% slot body %}
+            {% csrf_token %}
+            {% if redirect_field_value %}
+                <input type="hidden"
+                       name="{{ redirect_field_name }}"
+                       value="{{ redirect_field_value }}" />
+            {% endif %}
+        {% endslot %}
+        {% slot actions %}
+            <button class="btn btn-danger" type="submit">{% trans 'Sign Out' %}</button>
+            <a href="{% url 'myapp:home' %}" class="btn btn-secondary">Back</a>
+        {% endslot %}
+    {% endelement %}
+    </div>
+</div>
+</body>
+{% endblock body %}
